@@ -4,7 +4,7 @@
 deployment "simple" {
   inputs = {
     prefix           = "simple"
-    instances        = 3
+    instances        = 1
   }
 }
 
@@ -13,12 +13,4 @@ deployment "complex" {
     prefix           = "complex"
     instances        = 3
   }
-}
-
-orchestrate "auto_approve" "no_pet_changes" {
-    check {
-        # Check that the pet component has no changes
-        condition = context.plan.component_changes["component.pet"].total == 0
-        reason = "Not automatically approved because changes proposed to pet component."
-    }
 }
