@@ -15,6 +15,10 @@ deployment "complex" {
   }
 }
 
-deployment_auto_approve "no_pet_changes" {
-  condition = context.plan.component_changes["component.pet"].total == 0
+orchestrate "auto_approve" "no_pet_changes" {
+    check {
+        # Check that the pet component has no changes
+        condition = context.plan.component_changes["component.pet"].total == 0
+        reason = "Not automatically approved because changes proposed to pet component."
+    }
 }
