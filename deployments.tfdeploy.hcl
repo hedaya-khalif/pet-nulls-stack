@@ -15,20 +15,6 @@ deployment "complex" {
   }
 }
 
-deployment "simple" {
-  inputs = {
-    prefix           = "simple"
-    instances        = 2
-  }
-}
-
-deployment "complex" {
-  inputs = {
-    prefix           = "complex"
-    instances        = 3
-  }
-}
-
 deployment_auto_approve "no_pet_changes" {
   check {
     # check that the pet component has no changes
